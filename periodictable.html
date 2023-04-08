@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table Jawan Pakistan</title>
+
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
+        body {
+            font-family:"Roboto Slab";
+   
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+button {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover,
+button:focus,
+button:active {
+  filter: brightness(1.1);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 00;
+}
+
+table, th, td {
+  border: 0;
+}
+
+th, td {
+  padding: 0;
+}
+
+caption, th {
+  font-weight: bold;
+  text-align: center;
+}
+
+/**
+ * Periodic table
+ */
+
+
+.periodic-table th {
+  padding: 0.5rem 1rem;
+}
+
+/* Group spacing */
+.periodic-table tbody td:nth-of-type(3) button {
+  padding-left: 1rem;
+}
+
+.periodic-table tbody:nth-of-type(2) tr:first-of-type button {
+  margin-top: 1rem;
+}
+
+.periodic-table div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  padding-top: 8px;
+  position: relative;
+  margin: 0.1rem;
+}
+
+.periodic-table small {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.periodic-table abbr {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/**
+ * Element type colors
+ */
+.nonmetals {
+  background-color: #b39ddb ;
+  border: 1px solid #916fd1;
+}
+
+.alkali-metals {
+  background-color: #ffb74d ;
+    border: 1px solid #f59e1a;
+
+}
+
+.alkaline-metals {
+  background-color: #ffab91 ;
+    border: 1px solid #eb7e5d;
+
+}
+
+.other-metals {
+  background-color: #ffca28 ;
+    border: 1px solid #efb60b;
+
+}
+
+.transition-metals {
+  background-color: #4dd0e1 ;
+    border: 1px solid #0fb8ce;
+
+}
+
+.lanthanoids {
+  background-color: #d4e157 ;
+    border: 1px solid #cce01e;
+
+}
+
+.actinoids {
+  background-color: #9ccc65 ;
+    border: 1px solid #77c320;
+
+}
+
+.metalloids {
+  background-color: #81c784 ;
+    border: 1px solid #49a94e;
+
+}
+
+.halogens {
+  background-color: #f48fb1 ;
+    border: 1px solid #dc6e92;
+
+}
+
+.noble-gases {
+  background-color: #64b5f6 ;
+    border: 1px solid #4396db;
+
+}
+
+.unknown-elements {
+  background-color: #90a4ae ;
+    border: 1px solid #7ba0b2;
+
+}
+
+/**
+ * Legend list
+ */
+.legend {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  max-width: 55rem;
+}
+
+.legend li {
+  display: flex;
+  padding: 0.25rem 0;
+}
+
+.legend li span {
+  border: 1px solid;
+  margin-right: 0.25rem;
+  height: 1em;
+  width: 1em;
+}
+
+/**
+ * Element data table
+ */
+.element-data-dialog {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+}
+
+.element-data-table caption {
+  text-align: left;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.element-data-table th {
+  text-align: left;
+  padding-right: 1rem;
+}
+h1{
+	font-family:"Roboto Slab";
+	font-weight:300;
+	font-size:60px;
+	text-align:center;
+	color:rgb(224,27,50);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bigbody {
+    display: grid;
+    grid-template-rows: 0fr 6rem auto;
+    grid-template-areas:
+        "main"
+        "."
+        "footer";
+    width: 100vw;
+    /* overflow-x: hidden; */
+    /* background: #f5f7fa; */
+    /* min-height: 100vh; */
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    height: 80px;
+    position: fixed;
+    bottom: 50px;
+}
+ .footer {
+	 z-index: 1;
+	 --footer-background: #ed5565;
+	 display: grid;
+	 position: relative;
+	 grid-area: footer;
+	 min-height: 1rem;
+}
+ .footer .bubbles {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 height: 1rem;
+	 background: var(--footer-background);
+	 filter: url("#blob");
+}
+ .bigbody .footer .bubbles .bubble {
+	 position: absolute;
+	 left: var(--position, 50%);
+	 background: var(--footer-background);
+	 border-radius: 100%;
+	 animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+	 transform: translate(-50%, 100%);
+}
+ .bigbody .footer .content {
+    z-index: 2;
+   
+    padding: 2rem;
+    background: var(--footer-background);
+    padding-top: 8px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Roboto Slab';
+}
+a:hover {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    /* letter-spacing: 1.1px; */
+    font-size: 13px;
+}
+ .bigbody .footer .content a, .bigbody .footer .content p {
+	 color: #f5f7fa;
+	 text-decoration: none;
+}
+ .bigbody .footer .content b {
+	 color: white;
+}
+ .bigbody .footer .content p {
+	 margin: 0;
+	 font-size: 0.75rem;
+}
+ .bigbody .footer .content > div {
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+}
+ .bigbody .footer .content > div > div {
+	 margin: 0.25rem 0;
+}
+ .bigbody .footer .content > div > div > * {
+	 margin-right: 0.5rem;
+}
+ .bigbody .footer .content > div .image {
+	 align-self: center;
+	 width: 4rem;
+	 height: 4rem;
+	 margin: 0.25rem 0;
+	 background-size: cover;
+	 background-position: center;
+}
+ @keyframes bubble-size {
+	 0%, 75% {
+		 width: var(--size, 4rem);
+		 height: var(--size, 4rem);
+	}
+	 100% {
+		 width: 0rem;
+		 height: 0rem;
+	}
+}
+ @keyframes bubble-move {
+	 0% {
+		 bottom: -4rem;
+	}
+	 100% {
+		 bottom: var(--distance, 10rem);
+	}
+}
+ 
+
+    </style>
+</head>
+<body>
+
+        <h1>The Periodic Table</h1>
+        <div class="periodic-table-wrapper" style="margin-bottom: 90px;">
+        <table class="periodic-table" lang="sv">
+           
+          <tbody>
+            <tr>
+              <th scope="row"><span aria-label="Period 1"></span></th>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Hydrogen">H</abbr>
+                    <small>1</small>
+                  </div>
+                </button>
+              </td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Helium">He</abbr>
+                    <small>2</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 2"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Lithium">Li</abbr>
+                    <small>3</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Beryllium">Be</abbr>
+                    <small>4</small>
+                  </div>
+                </button>
+              </td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Boron">B</abbr>
+                    <small>5</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Carbon">C</abbr>
+                    <small>6</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Kväve">N</abbr>
+                    <small aria-label="Atomnummer: 7">7</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Syre">O</abbr>
+                    <small aria-label="Atomnummer: 8">8</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="halogens">
+                    <abbr title="Flour">F</abbr>
+                    <small aria-label="Atomnummer: 9">9</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Neon">Ne</abbr>
+                    <small aria-label="Atomnummer: 10">10</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 3"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Natrium">Na</abbr>
+                    <small aria-label="Atomnummer: 11">11</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Magnesium">Mg</abbr>
+                    <small aria-label="Atomnummer: 12">12</small>
+                  </div>
+                </button>
+              </td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Aluminium">Al</abbr>
+                    <small aria-label="Atomnummer: 13">13</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Kisel">Si</abbr>
+                    <small aria-label="Atomnummer: 14">14</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Fosfor">P</abbr>
+                    <small aria-label="Atomnummer: 15">15</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Svavel">S</abbr>
+                    <small aria-label="Atomnummer: 16">16</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="halogens">
+                    <abbr title="Klor">Cl</abbr>
+                    <small aria-label="Atomnummer: 17">17</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Argon">Ar</abbr>
+                    <small aria-label="Atomnummer: 18">18</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 4"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Kalium">K</abbr>
+                    <small aria-label="Atomnummer: 19">19</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Kalcium">Ca</abbr>
+                    <small aria-label="Atomnummer: 20">20</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Skandium">Sc</abbr>
+                    <small aria-label="Atomnummer: 21">21</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Titan">Ti</abbr>
+                    <small aria-label="Atomnummer: 22">22</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Vanadin">V</abbr>
+                    <small aria-label="Atomnummer: 23">23</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Krom">Cr</abbr>
+                    <small aria-label="Atomnummer: 24">24</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Mangan">Mn</abbr>
+                    <small aria-label="Atomnummer: 25">25</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Järn">Fe</abbr>
+                    <small aria-label="Atomnummer: 26">26</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Kobolt">Co</abbr>
+                    <small aria-label="Atomnummer: 27">27</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Nickel">Ni</abbr>
+                    <small aria-label="Atomnummer: 28">28</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Koppar">Cu</abbr>
+                    <small aria-label="Atomnummer: 29">29</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Zink">Zn</abbr>
+                    <small aria-label="Atomnummer: 30">30</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Gallium">Ga</abbr>
+                    <small aria-label="Atomnummer: 31">31</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Germanium">Ge</abbr>
+                    <small aria-label="Atomnummer: 32">32</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Arsenik">As</abbr>
+                    <small aria-label="Atomnummer: 33">33</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="nonmetals">
+                    <abbr title="Selen">Se</abbr>
+                    <small aria-label="Atomnummer: 34">34</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="halogens">
+                    <abbr title="Brom">Br</abbr>
+                    <small aria-label="Atomnummer: 35">35</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Krypton">Kr</abbr>
+                    <small aria-label="Atomnummer: 36">36</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 5"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Rubidium">Rb</abbr>
+                    <small aria-label="Atomnummer: 37">37</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Strontium">Sr</abbr>
+                    <small aria-label="Atomnummer: 38">38</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Yttrium">Y</abbr>
+                    <small aria-label="Atomnummer: 39">39</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Zirkonium">Zr</abbr>
+                    <small aria-label="Atomnummer: 40">40</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Niob">Nb</abbr>
+                    <small aria-label="Atomnummer: 41">41</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Molybden">Mo</abbr>
+                    <small aria-label="Atomnummer: 42">42</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Teknetium">Tc</abbr>
+                    <small aria-label="Atomnummer: 43">43</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Rutenium">Ru</abbr>
+                    <small aria-label="Atomnummer: 44">44</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Rodium">Rh</abbr>
+                    <small aria-label="Atomnummer: 45">45</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Palladium">Pd</abbr>
+                    <small aria-label="Atomnummer: 46">46</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Silver">Ag</abbr>
+                    <small aria-label="Atomnummer: 47">47</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Kadmium">Cd</abbr>
+                    <small aria-label="Atomnummer: 48">48</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Indium">In</abbr>
+                    <small aria-label="Atomnummer: 49">49</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Tenn">Sn</abbr>
+                    <small aria-label="Atomnummer: 50">50</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Antimon">Sb</abbr>
+                    <small aria-label="Atomnummer: 51">51</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Tellur">Te</abbr>
+                    <small aria-label="Atomnummer: 52">52</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="halogens">
+                    <abbr title="Jod">I</abbr>
+                    <small aria-label="Atomnummer: 53">53</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Xenon">Xe</abbr>
+                    <small aria-label="Atomnummer: 54">54</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 6"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Cesium">Cs</abbr>
+                    <small aria-label="Atomnummer: 55">55</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Barium">Ba</abbr>
+                    <small aria-label="Atomnummer: 56">56</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Lutetium">Lu</abbr>
+                    <small aria-label="Atomnummer: 71">71</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Hafnium">Hf</abbr>
+                    <small aria-label="Atomnummer: 72">72</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Tantal">Ta</abbr>
+                    <small aria-label="Atomnummer: 73">73</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Volfram">W</abbr>
+                    <small aria-label="Atomnummer: 74">74</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Rhenium">Re</abbr>
+                    <small aria-label="Atomnummer: 75">75</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Osmium">Os</abbr>
+                    <small aria-label="Atomnummer: 76">76</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Iridium">Ir</abbr>
+                    <small aria-label="Atomnummer: 77">77</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Platina">Pt</abbr>
+                    <small aria-label="Atomnummer: 78">78</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Guld">Au</abbr>
+                    <small aria-label="Atomnummer: 79">79</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Kvicksilver">Hg</abbr>
+                    <small aria-label="Atomnummer: 80">80</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Tallium">Tl</abbr>
+                    <small aria-label="Atomnummer: 81">81</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Bly">Pb</abbr>
+                    <small aria-label="Atomnummer: 82">82</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="other-metals">
+                    <abbr title="Vismut">Bi</abbr>
+                    <small aria-label="Atomnummer: 83">83</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="metalloids">
+                    <abbr title="Polonium">Po</abbr>
+                    <small aria-label="Atomnummer: 84">84</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="halogens">
+                    <abbr title="Astat">At</abbr>
+                    <small aria-label="Atomnummer: 85">85</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="noble-gases">
+                    <abbr title="Radon">Rn</abbr>
+                    <small aria-label="Atomnummer: 86">86</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><span aria-label="Period 7"></span></th>
+              <td>
+                <button type="button">
+                  <div class="alkali-metals">
+                    <abbr title="Francium">Fr</abbr>
+                    <small aria-label="Atomnummer: 87">87</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="alkaline-metals">
+                    <abbr title="Radium">Ra</abbr>
+                    <small aria-label="Atomnummer: 88">88</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Lawrencium">Lr</abbr>
+                    <small aria-label="Atomnummer: 103">103</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Rutherfordium">Rf</abbr>
+                    <small aria-label="Atomnummer: 104">104</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Dubnium">Db</abbr>
+                    <small aria-label="Atomnummer: 105">105</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Seaborgium">Sg</abbr>
+                    <small aria-label="Atomnummer: 106">106</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Bohrium">Bh</abbr>
+                    <small aria-label="Atomnummer: 107">107</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Hassium">Hs</abbr>
+                    <small aria-label="Atomnummer: 108">108</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Meitnerium">Mt</abbr>
+                    <small aria-label="Atomnummer: 109">109</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Darmstadtium">Ds</abbr>
+                    <small aria-label="Atomnummer: 110">110</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Röntgenium">Rg</abbr>
+                    <small aria-label="Atomnummer: 111">111</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="transition-metals">
+                    <abbr title="Copernicum">Cn</abbr>
+                    <small aria-label="Atomnummer: 112">112</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Nihonium">Nh</abbr>
+                    <small aria-label="Atomnummer: 113">113</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Flerovium">Fl</abbr>
+                    <small aria-label="Atomnummer: 114">114</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Moscovium">Mc</abbr>
+                    <small aria-label="Atomnummer: 115">115</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Livermorium">Lv</abbr>
+                    <small aria-label="Atomnummer: 116">116</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Tenness">Ts</abbr>
+                    <small aria-label="Atomnummer: 117">117</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="unknown-elements">
+                    <abbr title="Oganesson">Og</abbr>
+                    <small aria-label="Atomnummer: 118">118</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row"><span aria-label="Period 6"></span></th>
+              <td></td>
+              <td></td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Lantan">La</abbr>
+                    <small aria-label="Atomnummer: 57">57</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Cerium">Ce</abbr>
+                    <small aria-label="Atomnummer: 58">58</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Praseodym">Pr</abbr>
+                    <small aria-label="Atomnummer: 59">59</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Neodym">Nd</abbr>
+                    <small aria-label="Atomnummer: 60">60</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Prometium">Pm</abbr>
+                    <small aria-label="Atomnummer: 61">61</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Samarium">Sm</abbr>
+                    <small aria-label="Atomnummer: 62">62</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Europium">Eu</abbr>
+                    <small aria-label="Atomnummer: 63">63</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Gadolinium">Gd</abbr>
+                    <small aria-label="Atomnummer: 64">64</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Terbium">Tb</abbr>
+                    <small aria-label="Atomnummer: 65">65</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Dysprosium">Dy</abbr>
+                    <small aria-label="Atomnummer: 66">66</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Holmium">Ho</abbr>
+                    <small aria-label="Atomnummer: 67">67</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Erbium">Er</abbr>
+                    <small aria-label="Atomnummer: 68">68</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Tulium">Tm</abbr>
+                    <small aria-label="Atomnummer: 69">69</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="lanthanoids">
+                    <abbr title="Ytterbium">Yb</abbr>
+                    <small aria-label="Atomnummer: 70">70</small>
+                  </div>
+                </button>
+              </td>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+            </tr>
+            <tr>
+              <th aria-hidden="true"><span aria-label="Period 7"></span></th>
+              <td aria-hidden="true"></td>
+              <td aria-hidden="true"></td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Aktinium">Ac</abbr>
+                    <small aria-label="Atomnummer: 89">89</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Torium">Th</abbr>
+                    <small aria-label="Atomnummer: 90">90</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Protaktinium">Pa</abbr>
+                    <small aria-label="Atomnummer: 91">91</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Uran">U</abbr>
+                    <small aria-label="Atomnummer: 92">92</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Neptunium">Np</abbr>
+                    <small aria-label="Atomnummer: 93">93</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Plutonium">Pu</abbr>
+                    <small aria-label="Atomnummer: 94">94</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Americium">Am</abbr>
+                    <small aria-label="Atomnummer: 95">95</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Curium">Cm</abbr>
+                    <small aria-label="Atomnummer: 96">96</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Berkelium">Bk</abbr>
+                    <small aria-label="Atomnummer: 97">97</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Californium">Cf</abbr>
+                    <small aria-label="Atomnummer: 98">98</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Einsteinium">Es</abbr>
+                    <small aria-label="Atomnummer: 99">99</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Fermium">Fm</abbr>
+                    <small aria-label="Atomnummer: 100">100</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Mendelevium">Md</abbr>
+                    <small aria-label="Atomnummer: 101">101</small>
+                  </div>
+                </button>
+              </td>
+              <td>
+                <button type="button">
+                  <div class="actinoids">
+                    <abbr title="Nobelium">No</abbr>
+                    <small aria-label="Atomnummer: 102">102</small>
+                  </div>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+
+
+<div class="bigbody">
+
+
+      <div class="footer">
+          <div class="bubbles">
+              <div class="bubble" style="--size:2.491516444691528rem; --distance:9.847367278632113rem; --position:81.17404753049946%; --time:3.3271519163088206s; --delay:-3.3940825044320535s;"></div>
+              <div class="bubble" style="--size:3.2707859478384185rem; --distance:6.5005849658928465rem; --position:21.947001736268327%; --time:3.0790285064232616s; --delay:-3.9210024487988626s;"></div>
+              <div class="bubble" style="--size:5.681782521981383rem; --distance:7.980036916166467rem; --position:1.6176779723706929%; --time:3.6017352909395353s; --delay:-2.1553449197715353s;"></div>
+              <div class="bubble" style="--size:4.075565982970235rem; --distance:8.414171721246154rem; --position:98.89375006678557%; --time:3.0529703922084863s; --delay:-3.0979249435669702s;"></div>
+              <div class="bubble" style="--size:4.890833234968178rem; --distance:9.287680581000293rem; --position:66.59558874342235%; --time:3.4991962416809423s; --delay:-3.430790109905015s;"></div>
+              <div class="bubble" style="--size:4.09134795721302rem; --distance:9.848021396853442rem; --position:98.8774712104484%; --time:2.688222497301862s; --delay:-3.7289925707449307s;"></div>
+              <div class="bubble" style="--size:3.7647871778611695rem; --distance:7.121282537457889rem; --position:87.61849124043499%; --time:3.5134504604776655s; --delay:-3.2744275825850355s;"></div>
+              <div class="bubble" style="--size:3.2493282210489536rem; --distance:7.645727406309568rem; --position:94.64282072074508%; --time:3.834994886389312s; --delay:-2.387575444388539s;"></div>
+              <div class="bubble" style="--size:3.0062511472135665rem; --distance:8.172318926059356rem; --position:19.377605292981425%; --time:3.7064920457303723s; --delay:-2.5047623238408954s;"></div>
+              <div class="bubble" style="--size:4.007776792133175rem; --distance:9.962287574442891rem; --position:84.50046117438497%; --time:2.3315382075504525s; --delay:-3.5644426812457675s;"></div>
+              <div class="bubble" style="--size:3.6821263022135433rem; --distance:8.527380947668025rem; --position:102.84983407061193%; --time:3.6883701115249714s; --delay:-2.732850670044724s;"></div>
+              <div class="bubble" style="--size:2.0952227186274968rem; --distance:7.072802125467494rem; --position:82.52517925132489%; --time:3.286020796299237s; --delay:-3.7003990919735026s;"></div>
+              <div class="bubble" style="--size:5.632988254948223rem; --distance:6.249127028203661rem; --position:17.69568812094932%; --time:3.6704270680804654s; --delay:-3.7231274224400392s;"></div>
+              <div class="bubble" style="--size:5.040281198540886rem; --distance:7.189540062550021rem; --position:11.897579788666569%; --time:2.7466688648592616s; --delay:-2.9717164082706695s;"></div>
+              <div class="bubble" style="--size:5.405970562311905rem; --distance:9.121376697662974rem; --position:16.72720422752837%; --time:3.003484119800743s; --delay:-3.829958760058749s;"></div>
+              <div class="bubble" style="--size:4.692340265968732rem; --distance:8.62418169063994rem; --position:20.332315108512823%; --time:2.1795791499103276s; --delay:-3.51909015930651s;"></div>
+              <div class="bubble" style="--size:5.317094804303301rem; --distance:7.122871551487387rem; --position:24.336515990733073%; --time:3.3650390330097015s; --delay:-2.4092569040267633s;"></div>
+              <div class="bubble" style="--size:2.252025863114868rem; --distance:8.348327968332509rem; --position:72.68665811579389%; --time:2.732004760957474s; --delay:-2.2065007566159496s;"></div>
+              <div class="bubble" style="--size:3.3624563532545952rem; --distance:6.8910944244960195rem; --position:59.620735252745035%; --time:2.944715939026752s; --delay:-2.2244109979024085s;"></div>
+              <div class="bubble" style="--size:4.275827389109325rem; --distance:8.183374894102275rem; --position:43.79231407996535%; --time:3.4573791629914488s; --delay:-3.0644438892818964s;"></div>
+              <div class="bubble" style="--size:3.398461541544113rem; --distance:8.232474981569798rem; --position:39.2263241163376%; --time:3.7061477177143676s; --delay:-3.154774233006878s;"></div>
+              <div class="bubble" style="--size:2.783560506136104rem; --distance:8.702750230353168rem; --position:72.55227545692958%; --time:2.0622296626198717s; --delay:-2.918057409382929s;"></div>
+              <div class="bubble" style="--size:4.115891140813951rem; --distance:6.169871792600636rem; --position:44.734610218955964%; --time:2.74554423060941s; --delay:-3.3659929056149562s;"></div>
+              <div class="bubble" style="--size:4.696133787221044rem; --distance:6.013003353965437rem; --position:58.259528545475234%; --time:2.632118168303722s; --delay:-3.728288202463577s;"></div>
+              <div class="bubble" style="--size:3.9193320107269907rem; --distance:9.881018816581403rem; --position:103.79213986318068%; --time:3.018347865944745s; --delay:-3.900709997990155s;"></div>
+              <div class="bubble" style="--size:3.5724502013795396rem; --distance:8.795519897721265rem; --position:74.79266501836027%; --time:3.0249399025195487s; --delay:-3.714347572930356s;"></div>
+              <div class="bubble" style="--size:2.0771347818766923rem; --distance:6.37075461489727rem; --position:9.486167653279525%; --time:2.7287174270402113s; --delay:-2.4625499916907687s;"></div>
+              <div class="bubble" style="--size:3.4257188985103273rem; --distance:9.204610193281319rem; --position:52.874191657019864%; --time:2.669805793164964s; --delay:-3.381507489688421s;"></div>
+              <div class="bubble" style="--size:4.111108486461337rem; --distance:8.132775663792152rem; --position:22.812802113309058%; --time:3.036882233332378s; --delay:-2.058117333286015s;"></div>
+              <div class="bubble" style="--size:5.52146119361857rem; --distance:7.88298207274992rem; --position:78.52463000092392%; --time:3.4596931936387816s; --delay:-2.750238441580719s;"></div>
+              <div class="bubble" style="--size:3.1892002053454123rem; --distance:7.720373276668553rem; --position:29.815524748094433%; --time:2.770603267242496s; --delay:-3.1850349046670323s;"></div>
+              <div class="bubble" style="--size:2.2797526808796134rem; --distance:6.979746686266674rem; --position:101.1646751073311%; --time:3.3016651712614893s; --delay:-3.715367445835178s;"></div>
+              <div class="bubble" style="--size:2.630543867760645rem; --distance:6.423397974718441rem; --position:85.23997268551469%; --time:3.5624578137844294s; --delay:-3.266018085127605s;"></div>
+              <div class="bubble" style="--size:4.866563235464355rem; --distance:6.6640874146925775rem; --position:82.53106439846138%; --time:3.5287416303498875s; --delay:-3.9667236689901015s;"></div>
+              <div class="bubble" style="--size:3.939642079547954rem; --distance:8.739785270346342rem; --position:16.638215390938445%; --time:3.2460576116744613s; --delay:-3.662008886159783s;"></div>
+              <div class="bubble" style="--size:2.2117344258535505rem; --distance:6.650074453406176rem; --position:21.897038389677647%; --time:3.9249763203825068s; --delay:-2.1636936329844905s;"></div>
+              <div class="bubble" style="--size:4.822929542954841rem; --distance:7.344418030840898rem; --position:92.83562665675959%; --time:2.2794484109578566s; --delay:-3.336616854541344s;"></div>
+              <div class="bubble" style="--size:4.98871575218754rem; --distance:7.77260226968083rem; --position:73.55121636183387%; --time:3.0821307424851527s; --delay:-3.537867300754152s;"></div>
+              <div class="bubble" style="--size:4.93057630552538rem; --distance:8.579744268768142rem; --position:70.1332444855707%; --time:2.060089122913368s; --delay:-2.9097146662964866s;"></div>
+              <div class="bubble" style="--size:3.7126026719049143rem; --distance:6.817493523900884rem; --position:23.434120653630252%; --time:3.511811904603493s; --delay:-3.4243727233192205s;"></div>
+              <div class="bubble" style="--size:5.780980836901841rem; --distance:6.510671807487263rem; --position:18.88947238606997%; --time:2.208022130268582s; --delay:-3.130328116553076s;"></div>
+              <div class="bubble" style="--size:5.740095804118497rem; --distance:9.241087288820696rem; --position:73.48337110352213%; --time:2.1470645471424676s; --delay:-3.4629175953642455s;"></div>
+              <div class="bubble" style="--size:4.801246216201725rem; --distance:8.189158685711536rem; --position:10.692157979844374%; --time:2.6385877068509918s; --delay:-3.437683296615842s;"></div>
+              <div class="bubble" style="--size:5.502009409680924rem; --distance:6.560000650481394rem; --position:59.449851151604705%; --time:3.9586945293698923s; --delay:-2.866015197306036s;"></div>
+              <div class="bubble" style="--size:3.0012334966698146rem; --distance:9.542755507756432rem; --position:64.57243578414227%; --time:2.4068308987419718s; --delay:-3.574572410846182s;"></div>
+              <div class="bubble" style="--size:5.576539087101213rem; --distance:9.205584466965313rem; --position:40.983174884865996%; --time:3.9731713186303206s; --delay:-2.2268549302636815s;"></div>
+              <div class="bubble" style="--size:3.5528514440588426rem; --distance:8.143330557767138rem; --position:53.30154981811241%; --time:2.963905205842518s; --delay:-3.5998099297605983s;"></div>
+              <div class="bubble" style="--size:2.1927050276622166rem; --distance:8.572168536585126rem; --position:1.5875025632676332%; --time:3.189675993472443s; --delay:-3.3488545973849075s;"></div>
+              <div class="bubble" style="--size:5.6893839109602045rem; --distance:6.7008020512314905rem; --position:83.10809921333572%; --time:3.6656537548426575s; --delay:-3.417302054655849s;"></div>
+              <div class="bubble" style="--size:2.2607919889188626rem; --distance:6.664364604965791rem; --position:26.777460543734176%; --time:3.7819808790495606s; --delay:-3.1471388928720407s;"></div>
+              <div class="bubble" style="--size:5.562362472053937rem; --distance:7.209121816403851rem; --position:14.444742997189433%; --time:2.0264414281147882s; --delay:-3.824017233549275s;"></div>
+              <div class="bubble" style="--size:2.142612403694833rem; --distance:8.31855318738026rem; --position:22.890490919164158%; --time:3.238442489930713s; --delay:-2.6010521822709776s;"></div>
+              <div class="bubble" style="--size:3.2084515676625545rem; --distance:9.562925766680426rem; --position:78.69332983853963%; --time:2.2972321517723953s; --delay:-3.399829707925819s;"></div>
+              <div class="bubble" style="--size:3.7370800860967925rem; --distance:8.04853170943187rem; --position:21.649119891927523%; --time:2.519599437350939s; --delay:-3.1250550565556496s;"></div>
+              <div class="bubble" style="--size:2.185882496464755rem; --distance:7.336979296916468rem; --position:56.92481383006754%; --time:2.8311788289895463s; --delay:-2.268290721049543s;"></div>
+              <div class="bubble" style="--size:4.215968977434484rem; --distance:7.521057514214597rem; --position:21.566416019650557%; --time:3.082357844339041s; --delay:-2.5447869178704305s;"></div>
+              <div class="bubble" style="--size:5.223885061957098rem; --distance:6.08837487973583rem; --position:96.08200598894234%; --time:2.9959176945392447s; --delay:-3.2820501777991242s;"></div>
+              <div class="bubble" style="--size:3.545667040251705rem; --distance:9.62475305991831rem; --position:68.28792100556471%; --time:3.0994524376531705s; --delay:-2.255782610300811s;"></div>
+              <div class="bubble" style="--size:5.845871616425574rem; --distance:8.310525069482118rem; --position:100.55727625090051%; --time:2.501471793536309s; --delay:-2.576306578110494s;"></div>
+              <div class="bubble" style="--size:5.5257057702510375rem; --distance:7.3763479897098065rem; --position:77.95131705807921%; --time:2.1796358971803995s; --delay:-2.473319749724336s;"></div>
+              <div class="bubble" style="--size:5.237282703196008rem; --distance:7.835913295315765rem; --position:-2.5502989778771346%; --time:2.5744820174458973s; --delay:-2.218425594090662s;"></div>
+              <div class="bubble" style="--size:4.825370741418969rem; --distance:8.55933144115081rem; --position:33.96867911555063%; --time:3.969817166559638s; --delay:-2.5892956089099672s;"></div>
+              <div class="bubble" style="--size:4.737900302668331rem; --distance:7.598260168207074rem; --position:64.69696236746485%; --time:3.005681578795777s; --delay:-2.9167996270976397s;"></div>
+              <div class="bubble" style="--size:4.617524300515538rem; --distance:7.369949112539935rem; --position:18.961894024046543%; --time:2.975837734066779s; --delay:-3.994579483180293s;"></div>
+              <div class="bubble" style="--size:4.097581873827286rem; --distance:8.786655804433519rem; --position:89.32583368751791%; --time:3.6972643592264083s; --delay:-3.559683029633907s;"></div>
+              <div class="bubble" style="--size:4.4522430941999165rem; --distance:7.863235079546466rem; --position:41.753909350754%; --time:3.1705879104765935s; --delay:-3.704490217577401s;"></div>
+              <div class="bubble" style="--size:3.6301594519591402rem; --distance:7.284135282673813rem; --position:104.7935062738319%; --time:3.346271039894285s; --delay:-2.9364798404598957s;"></div>
+              <div class="bubble" style="--size:3.5462030050739166rem; --distance:8.080297261548894rem; --position:39.60547149666002%; --time:3.2889550384743096s; --delay:-2.609741104041932s;"></div>
+              <div class="bubble" style="--size:5.306871520968131rem; --distance:6.158073231036912rem; --position:98.86225547827053%; --time:2.291267125760458s; --delay:-3.6982703335798632s;"></div>
+              <div class="bubble" style="--size:2.8222178383118735rem; --distance:9.84929089927315rem; --position:77.36743377526395%; --time:2.725141783458102s; --delay:-3.127066242638471s;"></div>
+              <div class="bubble" style="--size:2.6564540389369826rem; --distance:8.249652962629124rem; --position:76.1095489073854%; --time:3.114402232333s; --delay:-2.8381992216933285s;"></div>
+              <div class="bubble" style="--size:2.4193925843103115rem; --distance:6.254294577718021rem; --position:6.4428433127842375%; --time:3.168051152859713s; --delay:-3.6593199626335617s;"></div>
+              <div class="bubble" style="--size:5.949252480921308rem; --distance:6.090340222087547rem; --position:32.89240589685744%; --time:2.404424769933586s; --delay:-2.626004989999047s;"></div>
+              <div class="bubble" style="--size:5.424355273219352rem; --distance:6.386348295738542rem; --position:102.31659353457103%; --time:2.8953501171274336s; --delay:-2.704401449715153s;"></div>
+              <div class="bubble" style="--size:3.544422765064165rem; --distance:6.073300950803376rem; --position:54.765730145497145%; --time:2.0348342767195966s; --delay:-2.1082540775865435s;"></div>
+              <div class="bubble" style="--size:3.808904875849583rem; --distance:9.65418796194961rem; --position:99.60016790800356%; --time:3.1959370408610197s; --delay:-2.9679622814167446s;"></div>
+              <div class="bubble" style="--size:2.169868424863397rem; --distance:6.723637758586955rem; --position:55.184320504120365%; --time:2.0305847243100694s; --delay:-2.7253074228504244s;"></div>
+              <div class="bubble" style="--size:3.6790081044318015rem; --distance:9.344837132287175rem; --position:14.30355579093418%; --time:2.495158617953565s; --delay:-2.399984628658176s;"></div>
+              <div class="bubble" style="--size:4.735750979317477rem; --distance:8.793386546681614rem; --position:40.066800160023995%; --time:2.5592602767959605s; --delay:-3.797245213267557s;"></div>
+              <div class="bubble" style="--size:4.888272809336297rem; --distance:6.3097468857275905rem; --position:28.101658681928797%; --time:3.590078492984148s; --delay:-3.617935249196975s;"></div>
+              <div class="bubble" style="--size:3.3630587228356426rem; --distance:7.611501691908466rem; --position:25.356258275177332%; --time:3.164141346256296s; --delay:-2.829796010226474s;"></div>
+              <div class="bubble" style="--size:4.619627640726809rem; --distance:8.161114349720709rem; --position:18.37923429221855%; --time:2.5093662711657507s; --delay:-2.2360807447034095s;"></div>
+              <div class="bubble" style="--size:2.098634409406375rem; --distance:7.108185944230482rem; --position:33.54502090894803%; --time:3.339279581055569s; --delay:-2.62963238573271s;"></div>
+              <div class="bubble" style="--size:4.355057919888654rem; --distance:7.600601971838384rem; --position:69.70698833408795%; --time:2.907602965371147s; --delay:-2.2054948245515593s;"></div>
+              <div class="bubble" style="--size:5.492320868913642rem; --distance:8.903169386106491rem; --position:22.454318824975942%; --time:3.675430134278769s; --delay:-2.7365826888438605s;"></div>
+              <div class="bubble" style="--size:5.7644464835820255rem; --distance:8.197758261206294rem; --position:32.94224208417253%; --time:2.125227634686807s; --delay:-2.9356989251294876s;"></div>
+              <div class="bubble" style="--size:4.3748162780116475rem; --distance:8.080599496264679rem; --position:66.36437865128659%; --time:3.189008648552507s; --delay:-2.632599457043141s;"></div>
+              <div class="bubble" style="--size:3.2807677261305033rem; --distance:9.07876480379056rem; --position:7.031532388176247%; --time:3.1252244199182333s; --delay:-3.6138935709137616s;"></div>
+              <div class="bubble" style="--size:4.272033125130092rem; --distance:6.296742105864278rem; --position:93.15998251930978%; --time:3.9921073992196514s; --delay:-3.1035653574404383s;"></div>
+              <div class="bubble" style="--size:4.301008643577035rem; --distance:9.3325923891618rem; --position:69.96024726524067%; --time:3.717377097265806s; --delay:-3.1178917835635716s;"></div>
+              <div class="bubble" style="--size:2.570038051808128rem; --distance:7.343856806732029rem; --position:30.36360548046423%; --time:3.295173557029511s; --delay:-2.2733234963124183s;"></div>
+              <div class="bubble" style="--size:4.747645454345364rem; --distance:8.252303654334114rem; --position:6.772466388435962%; --time:3.4578454958774456s; --delay:-2.840015361531917s;"></div>
+              <div class="bubble" style="--size:4.818711946679277rem; --distance:9.771378127381151rem; --position:-4.566480002881555%; --time:2.716655652879775s; --delay:-3.6680516146427284s;"></div>
+              <div class="bubble" style="--size:3.462067044654269rem; --distance:8.636560500927626rem; --position:71.32972353151544%; --time:2.125588902323052s; --delay:-2.9540257115632462s;"></div>
+              <div class="bubble" style="--size:3.45145092702594rem; --distance:9.731649294803592rem; --position:92.35315020736189%; --time:3.856436462948649s; --delay:-3.3541249356839216s;"></div>
+              <div class="bubble" style="--size:4.585987041330924rem; --distance:6.091995740662208rem; --position:59.511231578906546%; --time:2.913607574244487s; --delay:-3.5764062805841164s;"></div>
+              <div class="bubble" style="--size:4.366198141776675rem; --distance:9.441396002829562rem; --position:10.634084675366374%; --time:3.252262435937315s; --delay:-2.8517992284000897s;"></div>
+              <div class="bubble" style="--size:4.620567521043228rem; --distance:7.957546576804506rem; --position:100.50142292950551%; --time:3.5322681189818175s; --delay:-3.9700440890627493s;"></div>
+              <div class="bubble" style="--size:5.7535818967846994rem; --distance:8.05979421690714rem; --position:88.86103902756264%; --time:3.826090919988895s; --delay:-2.670290420026935s;"></div>
+              <div class="bubble" style="--size:2.7340171682532874rem; --distance:9.766596097920347rem; --position:41.5987976957294%; --time:2.124817507832943s; --delay:-3.917011878366433s;"></div>
+              <div class="bubble" style="--size:4.576775726769306rem; --distance:8.08133451033782rem; --position:30.48321360788445%; --time:2.0831615599080235s; --delay:-3.425667269436056s;"></div>
+              <div class="bubble" style="--size:4.8724680152922755rem; --distance:9.225215345178487rem; --position:95.39127015140002%; --time:2.500372029631843s; --delay:-3.501792052373616s;"></div>
+              <div class="bubble" style="--size:5.08531201865869rem; --distance:6.512004445393032rem; --position:15.967942682952334%; --time:2.664325539955504s; --delay:-3.8940352421896445s;"></div>
+              <div class="bubble" style="--size:5.057091900613809rem; --distance:8.532285488852382rem; --position:27.14195951005508%; --time:3.8393368755441633s; --delay:-3.7479299289353527s;"></div>
+              <div class="bubble" style="--size:5.1887516840931rem; --distance:8.691702723361049rem; --position:36.10228508542422%; --time:2.210890748644192s; --delay:-3.3682436742644883s;"></div>
+              <div class="bubble" style="--size:5.769748338725329rem; --distance:9.787053905879844rem; --position:59.400195464809826%; --time:2.2172237601578138s; --delay:-3.2420733131641395s;"></div>
+              <div class="bubble" style="--size:4.457613990587115rem; --distance:9.79946801182598rem; --position:1.5443208014327343%; --time:3.3282514420165725s; --delay:-2.2853957430682477s;"></div>
+              <div class="bubble" style="--size:4.867780314831537rem; --distance:7.216566500851496rem; --position:10.728674618999754%; --time:3.7469732080136247s; --delay:-3.0570329393182987s;"></div>
+              <div class="bubble" style="--size:4.637215107854167rem; --distance:8.086593467846445rem; --position:56.58551211810233%; --time:2.6705711773119543s; --delay:-2.3511996180267154s;"></div>
+              <div class="bubble" style="--size:3.4619208065668516rem; --distance:7.163663497407738rem; --position:81.58296055417226%; --time:2.6963519704139243s; --delay:-2.8739244933169017s;"></div>
+              <div class="bubble" style="--size:3.070936416195246rem; --distance:9.013650379211226rem; --position:19.01805606008346%; --time:3.4476910368236378s; --delay:-2.0486713727693706s;"></div>
+              <div class="bubble" style="--size:4.444084232880938rem; --distance:7.331674485317073rem; --position:12.269399964011164%; --time:3.5428847031225352s; --delay:-3.4095726843275385s;"></div>
+              <div class="bubble" style="--size:4.271262586682358rem; --distance:8.226016840487336rem; --position:64.75277560028486%; --time:2.090180910808987s; --delay:-3.0926943142089782s;"></div>
+              <div class="bubble" style="--size:4.750224203493655rem; --distance:6.143051719242848rem; --position:52.08253462730028%; --time:3.0653393321052076s; --delay:-3.4434940109562358s;"></div>
+              <div class="bubble" style="--size:5.349067164224118rem; --distance:8.525797276218618rem; --position:-4.4117568733105745%; --time:2.4500676629954543s; --delay:-2.4982464378815865s;"></div>
+              <div class="bubble" style="--size:5.433510239963471rem; --distance:9.213312703873836rem; --position:6.870340811660654%; --time:2.8746382537738984s; --delay:-3.6910871678327055s;"></div>
+              <div class="bubble" style="--size:3.4264230370424116rem; --distance:6.6944797920082895rem; --position:42.98406250029262%; --time:2.7105536695348555s; --delay:-2.2614298054612414s;"></div>
+              <div class="bubble" style="--size:2.433827579531142rem; --distance:9.938166988545511rem; --position:13.155264653838923%; --time:3.6841349619050052s; --delay:-2.449967328727649s;"></div>
+              <div class="bubble" style="--size:2.27322482962198rem; --distance:9.183905070887981rem; --position:38.53486209641358%; --time:3.0311778014644757s; --delay:-2.630040815135476s;"></div>
+              <div class="bubble" style="--size:5.348369607842599rem; --distance:9.25981442314567rem; --position:89.70809029225275%; --time:2.428279692395552s; --delay:-3.8492131289529623s;"></div>
+              <div class="bubble" style="--size:4.88676089538807rem; --distance:7.86087328832271rem; --position:40.561163574335126%; --time:2.5639262993308476s; --delay:-2.0530820236792047s;"></div>
+              <div class="bubble" style="--size:2.2673036455998714rem; --distance:6.261851323905008rem; --position:87.72776150548562%; --time:3.048998416671915s; --delay:-2.325936429378874s;"></div>
+              <div class="bubble" style="--size:5.949877893954383rem; --distance:7.811978173483044rem; --position:103.89236201308903%; --time:2.823796011423938s; --delay:-2.6985048777092207s;"></div>
+              <div class="bubble" style="--size:4.754883528298856rem; --distance:7.910179412869554rem; --position:49.937788023234745%; --time:3.8557991758584547s; --delay:-3.8500503288743078s;"></div>
+              <div class="bubble" style="--size:3.847937328742641rem; --distance:6.925814687702473rem; --position:15.739943095282548%; --time:2.163583308417382s; --delay:-2.003670011459335s;"></div>
+              <div class="bubble" style="--size:4.86363822930336rem; --distance:9.568309462417748rem; --position:50.09041199004367%; --time:2.9880163912805973s; --delay:-2.891101967824649s;"></div>
+              <div class="bubble" style="--size:3.408920448878849rem; --distance:9.519898789719722rem; --position:38.209516549250345%; --time:2.936529861912322s; --delay:-3.1328846238796038s;"></div>
+              <div class="bubble" style="--size:4.814220106216142rem; --distance:9.474869242826598rem; --position:75.84430838949199%; --time:3.784284239760557s; --delay:-2.648401747195815s;"></div>
+          </div>
+          <div class="content">
+            <span style="color: white;">
+
+                Created with ❤ by
+            </span>
+            
+            <a style="color: white;" href="https://github.com/Muhammad-Anus-Developer" target="_blank">
+
+            Muhammad Anus
+            </a>
+          </div>
+      </div><svg style="position:fixed; top:100vh">
+          <defs>
+              <filter id="blob">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+                  <!--feComposite(in="SourceGraphic" in2="blob" operator="atop") //After reviewing this after years I can't remember why I added this but it isn't necessary for the blob effect-->
+              </filter>
+          </defs>
+      </svg>
+    </div>
+</body>
+</html>
